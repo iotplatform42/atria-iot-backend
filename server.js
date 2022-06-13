@@ -8,9 +8,10 @@ const io = new Server(server);
 
 const generateAccessToken = require('./genAccessToken');
 const verify = require('./verify');
-
+const cors = require('cors')
 const { createDevice, deleteDevice, getDevices, getDeviceState } = require('./supabse')
 
+app.use(cors())
 app.get('/', (req, res) => {
     res.send('<h1>G42</h1>');
 });
