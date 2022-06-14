@@ -70,7 +70,7 @@ app.get('/devices/', async (req, res) => {
 app.get('/test-device/:id', async (req, res) => {
     if (req.params.id) {
         try {
-            return res.json({ data: (await getDeviceState({ id: req.params.id }))[0] })
+            return res.send((await getDeviceState({ id: req.params.id }))[0])
         } catch (error) {
             return res.sendStatus(501)
         }
